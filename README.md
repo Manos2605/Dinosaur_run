@@ -33,8 +33,6 @@ Ci-dessous, deux captures d'écran illustrant l'évolution du jeu :
 ## Fichiers principaux
 - `main-IA_visualisation.py` : jeu + IA + visualisation.
 - `main-IA.py` : version sans graphe.
-- `server.py` : serveur WebSocket pour communication avec le front.
-- `static/` : fichiers HTML/JS/CSS pour interface web.
 
 ## Auteur
 Manos2605
