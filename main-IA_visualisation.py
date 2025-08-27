@@ -29,11 +29,11 @@ score_history = []
 # --- Réseau de neurones simple avec biais ---
 class NeuralNet:
     def __init__(self):
-        # 4 -> 6 -> 1
-        self.w1 = np.random.randn(4, 6)
-        self.b1 = np.random.randn(6)
-        self.w2 = np.random.randn(6, 1)
-        self.b2 = np.random.randn(1)
+        # 4 -> 6 -> 1 (4 entrées, 6 neurones cachés, 1 sortie)
+        self.w1 = np.random.randn(4, 6) # poids couche 1
+        self.b1 = np.random.randn(6) # biais couche 1
+        self.w2 = np.random.randn(6, 1) # poids couche 2
+        self.b2 = np.random.randn(1) # biais couche 2
 
     def predict(self, inputs):
         # inputs: shape (4,)
@@ -158,7 +158,7 @@ def evolve(population, elitism=2, top_k=10, mut_rate=0.1, mut_scale=0.5):
     need = len(population) - len(new_population)
     for _ in range(need):
         parent1, parent2 = random.sample(best, 2)
-        child_brain = parent1.brain.crossover(parent2.brain)
+        child_brain = parent1.brain.crossover(parent2.brain) # On prend aléatoirement poids/biais de deux parents dans le top pour le crossover
         child_brain.mutate(rate=mut_rate, scale=mut_scale)
         new_population.append(Dinosaur(child_brain, color=parent1.color))
     return new_population
