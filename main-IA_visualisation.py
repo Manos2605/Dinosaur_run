@@ -36,7 +36,7 @@ class NeuralNet:
         self.w2 = np.random.randn(6, 1)  # poids cachée -> sortie
 
     def predict(self, inputs):
-        hidden = np.tanh(np.dot(inputs, self.w1))  # couche cachée
+        hidden = np.tanh(np.dot(inputs, self.w1))  # couche cachée avec tangente hyperbolique
         output = 1 / (1 + np.exp(-np.dot(hidden, self.w2)))  # sigmoid
         return output[0]
 
